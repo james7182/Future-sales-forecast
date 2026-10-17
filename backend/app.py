@@ -3,15 +3,15 @@ import pandas as pd
 from flask import Flask, request, jsonify
 
 # Initialize Flask app
-app = Flask("Boston House Predictor ")
+app = Flask("Future sales forecast")
 
-# Load the trained Boston housing model
-model = joblib.load("boston_housing_model_v1_0.joblib")
+# Load the trained Future sales forecast model
+model = joblib.load("sales_model_v1_0.joblib")
 
 # Define a route for the home page
 @app.get('/')
 def home():
-    return "Welcome to the Boston House Price Prediction API!"
+    return "Welcome to the Future sales forecast Prediction API!"
 
 # Define an endpoint to predict price for a single house
 @app.post('/v1/house')
