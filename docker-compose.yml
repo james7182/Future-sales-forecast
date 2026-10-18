@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # --- BACKEND SERVICE ---
+  backend:
+    build:
+      context: ./backend_files
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=7860
+    restart: always
+
+  # --- FRONTEND SERVICE ---
+  frontend:
+    build:
+      context: ./frontend_files
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      # Tell the frontend to talk to the backend container over Docker's internal network
+      - BACKEND_URL=http://backend:7860
+    depends_on:
+      - backend
+    restart: always
