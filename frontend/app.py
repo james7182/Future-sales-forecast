@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
 import requests
+import os
 
 # Base URL of the Flask backend running locally in the Colab container
-BACKEND_URL = "http://127.0.0.1:7860"
+# BACKEND_URL = "http://127.0.0.1:7860"
+BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:7860")
 
 st.title("Future Sales Prediction App")
 st.write("This app predicts future sales based on SuperKart retail chain features.")
