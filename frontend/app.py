@@ -41,9 +41,21 @@ PTRATIO = st.selectbox(
     options=["DR", "FD", "NC"]
 )
 
+# input_data = {
+#     'CRIM': CRIM, 'ZN': ZN, 'INDUS': INDUS, 'NX': NX, 'RM': RM,
+#     'AGE': AGE, 'DIS': DIS, 'RAD': RAD, 'TAX': TAX, 'PTRATIO': PTRATIO
+# }
 input_data = {
-    'CRIM': CRIM, 'ZN': ZN, 'INDUS': INDUS, 'NX': NX, 'RM': RM,
-    'AGE': AGE, 'DIS': DIS, 'RAD': RAD, 'TAX': TAX, 'PTRATIO': PTRATIO
+    'Product_Weight': CRIM,
+    'Product_Allocated_Area': ZN,
+    'Product_MRP': INDUS,
+    'Store_Age_Years': NX,
+    'Product_Sugar_Content': RM,
+    'Store_Size': AGE,
+    'Store_Location_City_Type': DIS,
+    'Product_Type_Category': RAD,
+    'Store_Type': TAX,
+    'Product_Id_char': PTRATIO
 }
 
 if st.button("Predict Single", type='primary'):
