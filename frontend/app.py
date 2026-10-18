@@ -21,10 +21,7 @@ DIS = st.slider("Choose Store Location (Tier 1/Tier 2/Tier 3)", 1.0, 12.0, 4.0, 
 RAD = st.slider("Choose Product Type (Perishables/Non Perishables)", 1, 24, 4, 1)
 TAX = st.slider("Choose Store Type (Departmental Store/Food Mart/Supermarket Type1/Supermarket Type2/Supermarket Type3)", 100, 700, 300, 1)
 PTRATIO = st.slider("Choose Item Class (DR/FD/NC)", 10.0, 25.0, 19.0, 0.1)
-
 # Categorical feature
-CHAS = st.selectbox("Charles River dummy variable (CHAS)", ["0 (No)", "1 (Yes)"])
-CHAS_value = 1 if CHAS.startswith("1") else 0
 
 # Create input DataFrame
 input_data = {
@@ -37,9 +34,7 @@ input_data = {
     'DIS': DIS,
     'RAD': RAD,
     'TAX': TAX,
-    'PTRATIO': PTRATIO,
-    'LSTAT': LSTAT,
-    'CHAS': CHAS_value
+    'PTRATIO': PTRATIO
 }
 
 if st.button("Predict", type='primary'):
