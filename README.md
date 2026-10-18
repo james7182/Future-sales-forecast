@@ -5,6 +5,7 @@ Future sales forecast - Flask API Backend + Streamlit Frontend (Dockerized)
 docker compose up --build
 
 • Frontend UI Dashboard: http://localhost:8501
+
 • Backend API Docs/Check: http://localhost:7860
 
 # Step 3
