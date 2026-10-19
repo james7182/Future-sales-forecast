@@ -11,6 +11,7 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=7860
+      - PYTHONUNBUFFERED=1
     restart: always
 
   # --- FRONTEND SERVICE ---

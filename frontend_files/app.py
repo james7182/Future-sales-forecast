@@ -79,12 +79,12 @@ if file1 is not None and file2 is not None:
     if st.button("Predict for Batch", type='primary'):
         # Map matching file streams to multi-part key dictionary
         csv_files = {
-            "file1": (file1.name, file1.getvalue(), "text/csv"),
-            "file2": (file2.name, file2.getvalue(), "text/csv")
+            "file_1": (file1.name, file1.getvalue(), "text/csv"),
+            "file_2": (file2.name, file2.getvalue(), "text/csv")
         }
-        
+
         with st.spinner("Processing batch records through server pipeline..."):
-            response = requests.post(f"{BACKEND_URL}/v1/predictbatch", files=csv_files)
+            response = requests.post(f"{BACKEND_URL}/v1/predictbatch", files = csv_files)
 
         if response.status_code == 200:
             result = response.json()

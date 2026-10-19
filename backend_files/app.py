@@ -143,8 +143,12 @@ def predict():
 def predictbatch():
 # 2. Extract the file handles from the incoming request payload (Matching Colab Client Keys)
 # Note: If your colab sends 'file1' and 'file2', access them using 'file1' and 'file2'
-    batch_file = request.files.get('file_1')
-    kart_file = request.files.get('file_2')
+    batch_file = request.files.get('file_1') or request.files.get('file1')
+    kart_file = request.files.get('file_2') or request.files.get('file2')
+
+    # print(f"Request: {request}", flush=True)
+    print(f"Batch File extracted: {batch_file}", flush=True)
+    print(f"Kart File extracted: {kart_file}", flush=True)
 
     if not batch_file or not kart_file:
         return jsonify({"error": "Missing file1 or file2 in multi-part form upload"}), 400
