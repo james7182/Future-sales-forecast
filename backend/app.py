@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Load the saved model directly using joblib
 # Fallback path checking logic
-model = joblib.load('backend_files/sales_model_v1_0.joblib')
+model = joblib.load('sales_model_v1_0.joblib')
 
 # Single prediction
 @app.post('/v1/predict')
