@@ -86,7 +86,8 @@ if file1 is not None:
             # Convert dictionary mapping results to clean display table
             if "results" in result:
                 df_results = pd.DataFrame(result["results"].items(), columns=["Unique_Tracking_Key", "Predicted_Sales"])
-                st.dataframe(df_results)
+                # st.dataframe(df_results)
+                st.table(df_results)
             else:
                 st.write(result)
         else:
