@@ -14,7 +14,7 @@ st.subheader("Single Record Prediction")
 CRIM = st.slider("Enter Product Weight", 0.0, 100.0, 0.2, 0.1)
 ZN = st.slider("Enter Product Allocated Area", 0.0, 100.0, 12.0, 1.0)
 INDUS = st.slider("Enter Product MRP", 0.0, 30.0, 11.0, 0.5)
-NX = st.slider("Enter Store Age in Years", 0.0, 1.0, 0.55, 0.01)
+NX = st.slider("Enter Store Age in Years", 1.0, 50.0, 5.0, 0.5)
 RM = st.selectbox(
     "Choose Product Sugar Content",
     options=["Low Sugar", "No Sugar", "Regular", "reg"]
