@@ -40,7 +40,6 @@ PTRATIO = st.selectbox(
     options=["DR", "FD", "NC"]
 )
 
-# Keys updated to perfectly match what your Flask /v1/predict route looks for
 input_data = {
     'Product_Weight': CRIM,
     'Product_Allocated_Area': ZN,
@@ -49,9 +48,9 @@ input_data = {
     'Product_Sugar_Content': RM,
     'Store_Size': AGE,
     'Store_Location_City_Type': DIS,
-    'Product_Type': RAD,
+    'Product_Type_Category': RAD,
     'Store_Type': TAX,
-    'Item_Class': PTRATIO
+    'Product_Id_char': PTRATIO
 }
 
 if st.button("Predict Single", type='primary'):
@@ -60,7 +59,7 @@ if st.button("Predict Single", type='primary'):
         result = response.json()
         st.success(f"📈 Predicted Future Sales: **\${result.get('prediction', 0):,.2f}**")
     else:
-        st.error(f"Error in API single prediction request: {response.text}")
+        st.error("Error in API single prediction request")
 
 
 # --- SECTION 2: BATCH PREDICTION (MULTIPLE FILES) ---
@@ -87,10 +86,8 @@ if file1 is not None:
             # Convert dictionary mapping results to clean display table
             if "results" in result:
                 df_results = pd.DataFrame(result["results"].items(), columns=["Unique_Tracking_Key", "Predicted_Sales"])
-                
-                # FIXED: Convert to a raw Markdown table text string 
-                # This completely bypasses the broken PyArrow layer!
-                st.markdown(df_results.to_markdown(index=False))
+                # st.dataframe(df_results)
+                st.table(df_results)
             else:
                 st.write(result)
         else:
