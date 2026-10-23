@@ -114,16 +114,16 @@ def predict():
     # -------------------------------------------------------------------------
     # Enforce the exact structural column sequence expected by model.fit()
     expected_training_features = [
-        "Product_Weight", "Product_Allocated_Area", "Product_MRP", "Store_Age_Years", 
-        "Product_Type_Perishables", "Product_Sugar_Content_No Sugar", 
-        "Product_Sugar_Content_Reg", "Product_Sugar_Content_Regular", 
-        "Store_Size_Medium", "Store_Size_Small", 
+        "Product_Weight", "Product_Allocated_Area", "Product_MRP", "Store_Age_Years",
+        "Product_Type_Perishables", "Product_Sugar_Content_No Sugar",
+        "Product_Sugar_Content_Reg", "Product_Sugar_Content_Regular",
+        "Store_Size_Medium", "Store_Size_Small",
         "Store_Location_City_Type_Tier 2", "Store_Location_City_Type_Tier 3",
-        "Store_Type_Food Mart", "Store_Type_Supermarket Type1", 
-        "Store_Type_Supermarket Type2", "Store_Type_Supermarket Type3", 
+        "Store_Type_Food Mart", "Store_Type_Supermarket Type1",
+        "Store_Type_Supermarket Type2", "Store_Type_Supermarket Type3",
         "Item_Class_FD", "Item_Class_NC"
     ]
-    
+
     # Reindex forces column ordering to match perfectly
     df = df.reindex(columns=expected_training_features, fill_value=False)
 
@@ -197,7 +197,7 @@ def predictbatch():
         temp_batch_df = pd.read_csv(io.BytesIO(batch_file.read()))
 
         # --- STEP 1: RESTORE MISSING FEATURE ENGINEERING (Mirroring Training Phase) ---
-        
+
         # Extract Item Class tracking identifier prefix string
         if 'Product_Id_char' in temp_batch_df.columns:
             temp_batch_df['Item_Class'] = temp_batch_df['Product_Id_char']
